@@ -166,12 +166,12 @@ html, body {
 </style>
 </head>
 <body>
-<div id="app">
+<div id="app" style="width:100%;min-height:100vh;display:flex;flex-direction:column;background:#1c1c1a;">
 
   <!-- STUDY HEADER -->
   <div class="header" id="hdr-study">
     <span class="header-title">WordFlash EN</span>
-    <div style="display:flex;gap:8px;align-items:center;"><button class="icon-btn hidden" id="install-btn" onclick="installPWA()" title="Uygulamayı yükle">📲</button><button class="icon-btn" id="mute-btn" onclick="toggleMute()" title="Ses">🔊</button>
+    <div style="display:flex;gap:8px;align-items:center;"><button class="icon-btn hidden" id="install-btn" onclick="installPWA()" title="Uygulamayı yükle">📲</button><button class="icon-btn" id="mute-btn" onclick="toggleMute()" title="Ses">🔊</button></div>
   </div>
 
   <!-- DECKS HEADER -->
@@ -190,7 +190,7 @@ html, body {
   </div>
 
   <!-- ══════════════ STUDY SCREEN ══════════════ -->
-  <div class="screen" id="scr-study">
+  <div class="screen" id="scr-study" style="width:100%;box-sizing:border-box;">
     <div class="deck-selector" id="deck-pills"></div>
     <div class="stats-row">
       <div class="stat-card"><div class="stat-n" id="s-new">0</div><div class="stat-l">Yeni</div></div>
@@ -229,13 +229,13 @@ html, body {
   </div>
 
   <!-- ══════════════ DECKS SCREEN ══════════════ -->
-  <div class="screen hidden" id="scr-decks">
+  <div class="screen hidden" id="scr-decks" style="width:100%;box-sizing:border-box;">
     <div class="section-title">Destelerim</div>
     <div class="deck-list" id="deck-list"></div>
   </div>
 
   <!-- ══════════════ ADD SCREEN ══════════════ -->
-  <div class="screen hidden" id="scr-add">
+  <div class="screen hidden" id="scr-add" style="width:100%;box-sizing:border-box;">
     <div class="form-group">
       <label class="form-label">Kelime / İfade</label>
       <input class="form-input" id="inp-word" placeholder="örn: give up" autocomplete="off" autocorrect="off" spellcheck="false">
@@ -283,7 +283,7 @@ html, body {
   </div>
 
   <!-- ══════════════ STATS SCREEN ══════════════ -->
-  <div class="screen hidden" id="scr-stats">
+  <div class="screen hidden" id="scr-stats" style="width:100%;box-sizing:border-box;">
     <div class="stats-row">
       <div class="stat-card"><div class="stat-n" id="st-streak">7</div><div class="stat-l">Gün serisi 🔥</div></div>
       <div class="stat-card"><div class="stat-n" id="st-total">0</div><div class="stat-l">Toplam kart</div></div>
