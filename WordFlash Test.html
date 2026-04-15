@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)file:///C:/Users/asrin/Downloads/test.html -->
+<html lang="tr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordFlash Test</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; font-family: sans-serif; background: #1c1c1a; color: #e8e6de; }
+#app { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+.card { width: 100%; max-width: 360px; background: #262624; border-radius: 16px; padding: 32px 24px; text-align: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
+.word { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.hint { font-size: 13px; color: #9e9d98; margin-top: 16px; }
+.tr { font-size: 20px; color: #97C459; margin-top: 8px; display: none; }
+.btns { display: flex; gap: 8px; margin-top: 16px; width: 100%; max-width: 360px; }
+.btn { flex: 1; padding: 12px; border-radius: 10px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; }
+.b1 { background: #2e0c0c; color: #F09595; }
+.b2 { background: #1a2e0a; color: #97C459; }
+.b3 { background: #0c2a44; color: #85B7EB; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="card" onclick="flip()" id="card">
+    <div style="font-size:40px" id="emoji">🏳️</div>
+    <div class="word" id="word">give up</div>
+    <div style="font-size:12px;color:#9e9d98">/ɡɪv ʌp/</div>
+    <div class="tr" id="tr" style="display: none;">pes etmek</div>
+    <div class="hint" id="hint">Çevirmek için tıkla</div>
+  </div>
+  <div class="btns" id="btns" style="display:none">
+    <button class="btn b1" onclick="next()">Tekrar</button>
+    <button class="btn b2" onclick="next()">Biliyorum</button>
+    <button class="btn b3" onclick="next()">Kolay</button>
+  </div>
+</div>
+<script>
+const CARDS = [
+  {e:"🏳️",w:"give up",p:"/ɡɪv ʌp/",t:"pes etmek"},
+  {e:"📉",w:"run out of",p:"/rʌn aʊt əv/",t:"tükenmek"},
+  {e:"🤝",w:"look after",p:"/lʊk ɑːftər/",t:"bakmak"},
+  {e:"💡",w:"figure out",p:"/fɪɡjər aʊt/",t:"çözmek"},
+  {e:"🔙",w:"come back",p:"/kʌm bæk/",t:"geri dönmek"},
+];
+let i=0, flipped=false;
+function render(){
+  const c=CARDS[i%CARDS.length];
+  flipped=false;
+  document.getElementById('emoji').textContent=c.e;
+  document.getElementById('word').textContent=c.w;
+  document.querySelector('[style*="12px"]').textContent=c.p;
+  document.getElementById('tr').style.display='none';
+  document.getElementById('hint').textContent='Çevirmek için tıkla';
+  document.getElementById('btns').style.display='none';
+}
+function flip(){
+  if(flipped) return;
+  flipped=true;
+  document.getElementById('tr').style.display='block';
+  document.getElementById('hint').textContent='';
+  document.getElementById('btns').style.display='flex';
+}
+function next(){ i++; render(); }
+render();
+</script>
+
+
+</body></html>
